@@ -3,14 +3,14 @@ $(document).ready(function () {
   $(".btn").on("click", function () {
     var description = $(this).siblings(".description").val();
     var taskTime = $(this).parent().attr("id");
-    localStorage.setItem(description, taskTime);
+    localStorage.setItem(taskTime, description);
   });
   // calls upon the saved data
   function taskHistory() {
     $(".time-block").each(function () {
       var timeID = $(this).attr("id");
       console.log(timeID);
-      $(`${timeID} .description`).text(localStorage.getItem(timeID));
+      $(`#${timeID} .description`).text(localStorage.getItem(timeID));
     });
   }
   // updates the color of the backgrounds according to the current time
